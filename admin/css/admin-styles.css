@@ -1,0 +1,415 @@
+/**
+ * Estilos de administración para WP Segment Integration
+ */
+
+/* Contenedor principal */
+.wp-segment-admin {
+    max-width: 1200px;
+}
+
+/* Navegación por pestañas */
+.nav-tab-wrapper {
+    border-bottom: 1px solid #ccd0d4;
+    margin-bottom: 20px;
+}
+
+.nav-tab {
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: #f1f1f1;
+    color: #555;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+    background: #fff;
+    color: #464646;
+}
+
+.nav-tab-active {
+    background: #fff;
+    border-color: #ccd0d4;
+    border-bottom: 1px solid #fff;
+    color: #000;
+    margin-bottom: -1px;
+}
+
+/* Contenido de pestañas */
+.tab-content {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-top: none;
+    padding: 20px;
+    border-radius: 0 0 4px 4px;
+}
+
+.tab-pane {
+    display: block;
+}
+
+/* Secciones */
+.wp-segment-section {
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.wp-segment-section h2 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+    color: #23282d;
+}
+
+.wp-segment-section h3 {
+    color: #23282d;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+/* Estado de conexión */
+.wp-segment-connection-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #0073aa;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.status-connected {
+    background-color: #46b450;
+    box-shadow: 0 0 0 2px rgba(70, 180, 80, 0.3);
+}
+
+.status-disconnected {
+    background-color: #dc3232;
+    box-shadow: 0 0 0 2px rgba(220, 50, 50, 0.3);
+}
+
+.status-warning {
+    background-color: #ffb900;
+    box-shadow: 0 0 0 2px rgba(255, 185, 0, 0.3);
+}
+
+/* Resultados de conexión */
+#connection-result {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 4px;
+    display: none;
+    font-weight: 500;
+}
+
+#connection-result.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+#connection-result.error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+#connection-result.loading {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}
+
+/* Herramientas */
+.wp-segment-tools .tool-section {
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.wp-segment-tools .tool-section h3 {
+    margin-top: 0;
+    color: #23282d;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 10px;
+}
+
+.wp-segment-tools .tool-section p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Sección de importación */
+.import-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e1e1;
+}
+
+.import-section h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #23282d;
+}
+
+.import-section textarea {
+    width: 100%;
+    max-width: 600px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    resize: vertical;
+}
+
+.import-section textarea:focus {
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+    outline: none;
+}
+
+/* Botones */
+.button.wp-segment-button {
+    background: #0073aa;
+    border-color: #0073aa;
+    color: #fff;
+    text-shadow: none;
+    box-shadow: 0 1px 0 #006799;
+}
+
+.button.wp-segment-button:hover {
+    background: #005a87;
+    border-color: #005a87;
+}
+
+.button.wp-segment-button:disabled {
+    background: #ccc !important;
+    border-color: #ccc !important;
+    color: #666 !important;
+    cursor: not-allowed;
+}
+
+/* Campos de formulario */
+.form-table th {
+    width: 200px;
+    padding: 20px 10px 20px 0;
+    vertical-align: top;
+}
+
+.form-table td {
+    padding: 15px 10px;
+    vertical-align: top;
+}
+
+.form-table input[type="text"],
+.form-table input[type="email"],
+.form-table input[type="password"],
+.form-table textarea,
+.form-table select {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-table input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.form-table .description {
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* Fieldsets */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+fieldset legend {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+fieldset label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+/* Notificaciones */
+.notice.wp-segment-notice {
+    border-left-width: 4px;
+    border-left-style: solid;
+    padding: 12px;
+    margin: 15px 0;
+    background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.notice.wp-segment-notice.notice-success {
+    border-left-color: #46b450;
+}
+
+.notice.wp-segment-notice.notice-error {
+    border-left-color: #dc3232;
+}
+
+.notice.wp-segment-notice.notice-warning {
+    border-left-color: #ffb900;
+}
+
+.notice.wp-segment-notice.notice-info {
+    border-left-color: #00a0d2;
+}
+
+/* Indicadores de carga */
+.wp-segment-loading {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #0073aa;
+    border-radius: 50%;
+    animation: wp-segment-spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes wp-segment-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Tooltips */
+.wp-segment-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.wp-segment-tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.wp-segment-tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .form-table th,
+    .form-table td {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .form-table th {
+        border-bottom: none;
+    }
+    
+    .wp-segment-connection-status {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .import-section textarea {
+        max-width: 100%;
+    }
+}
+
+/* Estados de campos */
+.form-field-error {
+    border-color: #dc3232 !important;
+    box-shadow: 0 0 0 1px #dc3232 !important;
+}
+
+.form-field-success {
+    border-color: #46b450 !important;
+    box-shadow: 0 0 0 1px #46b450 !important;
+}
+
+/* Grupos de campos */
+.field-group {
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #fafafa;
+}
+
+.field-group h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #23282d;
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 8px;
+}
+
+/* Badges */
+.wp-segment-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 3px;
+    margin-left: 8px;
+}
+
+.wp-segment-badge.badge-pro {
+    background: #0073aa;
+    color: #fff;
+}
+
+.wp-segment-badge.badge-new {
+    background: #46b450;
+    color: #fff;
+}
+
+.wp-segment-badge.badge-beta {
+    background: #ffb900;
+    color: #fff;
+}
+

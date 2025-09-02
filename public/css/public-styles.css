@@ -1,0 +1,136 @@
+/**
+ * Public styles for WP Segment Integration
+ */
+
+/* Minimal styles for the frontend */
+.wp-segment-hidden {
+    display: none !important;
+}
+
+/* Cookie consent indicator (if used) */
+.wp-segment-cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+
+.wp-segment-cookie-notice p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.wp-segment-cookie-notice .buttons {
+    margin-top: 10px;
+}
+
+.wp-segment-cookie-notice button {
+    background: #0073aa;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s ease;
+}
+
+.wp-segment-cookie-notice button:hover {
+    background: #005a87;
+}
+
+.wp-segment-cookie-notice button.decline {
+    background: #666;
+}
+
+.wp-segment-cookie-notice button.decline:hover {
+    background: #555;
+}
+
+/* Debug indicator (only visible in debug mode) */
+.wp-segment-debug {
+    position: fixed;
+    top: 32px;
+    right: 20px;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 12px;
+    z-index: 9998;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.wp-segment-debug h4 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #0ff;
+}
+
+.wp-segment-debug ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wp-segment-debug li {
+    margin-bottom: 4px;
+    padding: 2px 0;
+    border-bottom: 1px solid #333;
+}
+
+.wp-segment-debug .event-name {
+    color: #0f0;
+    font-weight: bold;
+}
+
+.wp-segment-debug .event-time {
+    color: #ff0;
+    font-size: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .wp-segment-cookie-notice {
+        padding: 12px;
+    }
+    
+    .wp-segment-cookie-notice p {
+        font-size: 13px;
+    }
+    
+    .wp-segment-cookie-notice button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .wp-segment-debug {
+        top: 46px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+/* Hide in admin bar mode */
+.admin-bar .wp-segment-debug {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .wp-segment-debug {
+        top: 46px;
+    }
+}
+
