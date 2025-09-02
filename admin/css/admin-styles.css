@@ -1,13 +1,13 @@
 /**
- * Estilos de administración para WP Segment Integration
+ * Admin Styles for WP Segment Integration
  */
 
-/* Contenedor principal */
+/* Main Container */
 .wp-segment-admin {
     max-width: 1200px;
 }
 
-/* Navegación por pestañas */
+/* Tab Navigation */
 .nav-tab-wrapper {
     border-bottom: 1px solid #ccd0d4;
     margin-bottom: 20px;
@@ -40,7 +40,7 @@
     margin-bottom: -1px;
 }
 
-/* Contenido de pestañas */
+/* Tab Content */
 .tab-content {
     background: #fff;
     border: 1px solid #ccd0d4;
@@ -53,7 +53,7 @@
     display: block;
 }
 
-/* Secciones */
+/* Sections */
 .wp-segment-section {
     background: #fff;
     border: 1px solid #e1e1e1;
@@ -76,7 +76,7 @@
     margin-bottom: 15px;
 }
 
-/* Estado de conexión */
+/* Connection Status */
 .wp-segment-connection-status {
     display: flex;
     align-items: center;
@@ -111,7 +111,7 @@
     box-shadow: 0 0 0 2px rgba(255, 185, 0, 0.3);
 }
 
-/* Resultados de conexión */
+/* Connection Result */
 #connection-result {
     margin-top: 15px;
     padding: 12px 15px;
@@ -138,7 +138,7 @@
     color: #0c5460;
 }
 
-/* Herramientas */
+/* Tools */
 .wp-segment-tools .tool-section {
     background: #fff;
     border: 1px solid #e1e1e1;
@@ -160,7 +160,7 @@
     margin-bottom: 15px;
 }
 
-/* Sección de importación */
+/* Import Section */
 .import-section {
     margin-top: 20px;
     padding-top: 20px;
@@ -190,7 +190,7 @@
     outline: none;
 }
 
-/* Botones */
+/* Buttons */
 .button.wp-segment-button {
     background: #0073aa;
     border-color: #0073aa;
@@ -211,7 +211,7 @@
     cursor: not-allowed;
 }
 
-/* Campos de formulario */
+/* Form Fields */
 .form-table th {
     width: 200px;
     padding: 20px 10px 20px 0;
@@ -261,7 +261,7 @@ fieldset label {
     font-weight: normal;
 }
 
-/* Notificaciones */
+/* Notifications */
 .notice.wp-segment-notice {
     border-left-width: 4px;
     border-left-style: solid;
@@ -287,7 +287,7 @@ fieldset label {
     border-left-color: #00a0d2;
 }
 
-/* Indicadores de carga */
+/* Loading Indicators */
 .wp-segment-loading {
     display: inline-block;
     width: 16px;
@@ -359,7 +359,7 @@ fieldset label {
     }
 }
 
-/* Estados de campos */
+/* Field States */
 .form-field-error {
     border-color: #dc3232 !important;
     box-shadow: 0 0 0 1px #dc3232 !important;
@@ -370,7 +370,7 @@ fieldset label {
     box-shadow: 0 0 0 1px #46b450 !important;
 }
 
-/* Grupos de campos */
+/* Field Groups */
 .field-group {
     border: 1px solid #e1e1e1;
     border-radius: 4px;

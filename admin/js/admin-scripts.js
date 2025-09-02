@@ -1,5 +1,5 @@
 /**
- * Scripts de administración para WP Segment Integration
+ * Admin Scripts for WP Segment Integration
  */
 
 (function($) {
@@ -12,19 +12,19 @@
         },
 
         bindEvents: function() {
-            // Probar conexión
+            // Test Connection
             $('#test-connection').on('click', this.testConnection);
             
-            // Exportar configuraciones
+            // Export Settings
             $('#export-settings').on('click', this.exportSettings);
-            
-            // Importar configuraciones
+
+            // Import Settings
             $('#import-settings').on('click', this.importSettings);
-            
-            // Validación de formularios
+
+            // Form Validation
             $('form').on('submit', this.validateForm);
             
-            // Mostrar/ocultar secciones dependientes
+            // Show/Hide Dependent Sections
             this.handleDependentFields();
         },
 
@@ -34,7 +34,7 @@
             var $button = $(this);
             var $result = $('#connection-result');
             
-            // Deshabilitar botón y mostrar estado de carga
+            // Disable button and show loading state
             $button.prop('disabled', true).text(wpSegmentAdmin.strings.testing);
             $result.removeClass('success error').hide();
             
@@ -56,7 +56,7 @@
                     $result.addClass('error').text(wpSegmentAdmin.strings.error + ': ' + error).show();
                 },
                 complete: function() {
-                    $button.prop('disabled', false).text('Probar Conexión');
+                    $button.prop('disabled', false).text('Test Connection');
                 }
             });
         },
@@ -86,14 +86,14 @@
                         a.click();
                         document.body.removeChild(a);
                         window.URL.revokeObjectURL(url);
-                        
-                        WPSegmentAdmin.showNotice('Configuraciones exportadas exitosamente', 'success');
+
+                        WPSegmentAdmin.showNotice('Settings exported successfully', 'success');
                     } else {
-                        WPSegmentAdmin.showNotice('Error al exportar: ' + response.data, 'error');
+                        WPSegmentAdmin.showNotice('Error exporting: ' + response.data, 'error');
                     }
                 },
                 error: function(xhr, status, error) {
-                    WPSegmentAdmin.showNotice('Error de conexión: ' + error, 'error');
+                    WPSegmentAdmin.showNotice('Connection error: ' + error, 'error');
                 },
                 complete: function() {
                     $button.prop('disabled', false);
@@ -109,19 +109,19 @@
             var settingsData = $textarea.val().trim();
             
             if (!settingsData) {
-                WPSegmentAdmin.showNotice('Por favor, pega las configuraciones JSON', 'error');
+                WPSegmentAdmin.showNotice('Please paste the JSON settings', 'error');
                 return;
             }
-            
-            // Validar JSON
+
+            // Validate JSON
             try {
                 JSON.parse(settingsData);
             } catch (e) {
-                WPSegmentAdmin.showNotice('JSON inválido: ' + e.message, 'error');
+                WPSegmentAdmin.showNotice('Invalid JSON: ' + e.message, 'error');
                 return;
             }
-            
-            if (!confirm('¿Estás seguro de que quieres importar estas configuraciones? Esto sobrescribirá las configuraciones actuales.')) {
+
+            if (!confirm('Are you sure you want to import these settings? This will overwrite the current settings.')) {
                 return;
             }
             
@@ -139,16 +139,16 @@
                     if (response.success) {
                         WPSegmentAdmin.showNotice(response.data, 'success');
                         $textarea.val('');
-                        // Recargar página después de 2 segundos
+                        // Reload page after 2 seconds
                         setTimeout(function() {
                             window.location.reload();
                         }, 2000);
                     } else {
-                        WPSegmentAdmin.showNotice('Error al importar: ' + response.data, 'error');
+                        WPSegmentAdmin.showNotice('Error importing: ' + response.data, 'error');
                     }
                 },
                 error: function(xhr, status, error) {
-                    WPSegmentAdmin.showNotice('Error de conexión: ' + error, 'error');
+                    WPSegmentAdmin.showNotice('Connection error: ' + error, 'error');
                 },
                 complete: function() {
                     $button.prop('disabled', false);
@@ -159,20 +159,20 @@
         validateForm: function(e) {
             var $form = $(this);
             var isValid = true;
-            
-            // Validar Write Key si está presente
+
+            // Validate Write Key if present
             var $writeKey = $form.find('input[name*="write_key"]');
             if ($writeKey.length && $writeKey.val().trim() === '') {
-                WPSegmentAdmin.showNotice('El Write Key es requerido', 'error');
+                WPSegmentAdmin.showNotice('The Write Key is required', 'error');
                 $writeKey.focus();
                 isValid = false;
             }
-            
-            // Validar formato de Write Key
+
+            // Validate Write Key format
             if ($writeKey.length && $writeKey.val().trim() !== '') {
                 var writeKeyPattern = /^[a-zA-Z0-9]{32,}$/;
                 if (!writeKeyPattern.test($writeKey.val().trim())) {
-                    WPSegmentAdmin.showNotice('El formato del Write Key no es válido', 'error');
+                    WPSegmentAdmin.showNotice('The Write Key format is invalid', 'error');
                     $writeKey.focus();
                     isValid = false;
                 }
@@ -184,7 +184,7 @@
         },
 
         handleDependentFields: function() {
-            // Mostrar/ocultar campos de WooCommerce
+            // Show/hide WooCommerce fields
             var $wooEnabled = $('input[name*="woocommerce_enabled"]');
             var $wooFields = $('input[name*="track_product"], input[name*="track_cart"], input[name*="track_checkout"], input[name*="track_order"], input[name*="track_coupon"]').closest('tr');
             
@@ -197,9 +197,9 @@
             }
             
             $wooEnabled.on('change', toggleWooFields);
-            toggleWooFields(); // Ejecutar al cargar
-            
-            // Mostrar/ocultar campos de privacidad
+            toggleWooFields(); // Execute on load
+
+            // Show/hide privacy fields
             var $cookieConsent = $('input[name*="cookie_consent"]');
             var $cookieFields = $cookieConsent.closest('tr').next('tr');
             
@@ -212,31 +212,31 @@
             }
             
             $cookieConsent.on('change', toggleCookieFields);
-            toggleCookieFields(); // Ejecutar al cargar
+            toggleCookieFields(); // Execute on load
         },
 
         showNotice: function(message, type) {
             var $notice = $('<div class="notice notice-' + type + ' is-dismissible"><p>' + message + '</p></div>');
             $('.wrap h1').after($notice);
-            
-            // Auto-dismiss después de 5 segundos
+
+            // Auto-dismiss after 5 seconds
             setTimeout(function() {
                 $notice.fadeOut(function() {
                     $(this).remove();
                 });
             }, 5000);
-            
-            // Scroll hacia arriba para mostrar el notice
+
+            // Scroll to top to show the notice
             $('html, body').animate({
                 scrollTop: 0
             }, 300);
         },
 
-        // Función para validar configuraciones en tiempo real
+        // Function to validate settings in real-time
         validateSettings: function() {
             var errors = [];
             
-            // Validar Write Key
+            // Validate Write Key
             var writeKey = $('input[name*="write_key"]').val();
             if (writeKey && !/^[a-zA-Z0-9]{32,}$/.test(writeKey)) {
                 errors.push('Write Key format is invalid');
@@ -246,12 +246,12 @@
         }
     };
 
-    // Inicializar cuando el documento esté listo
+    // Initialize when document is ready
     $(document).ready(function() {
         WPSegmentAdmin.init();
     });
 
-    // Hacer disponible globalmente
+    // Make globally available
     window.WPSegmentAdmin = WPSegmentAdmin;
 
 })(jQuery);
